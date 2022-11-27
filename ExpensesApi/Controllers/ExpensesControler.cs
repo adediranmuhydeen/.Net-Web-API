@@ -16,10 +16,17 @@ namespace ExpensesApi.Controllers
 
 
         [HttpPost("AddExpense")]
-        public Task<IActionResult> AddExpensesAsyc(ExpenseDto expenseDto)
+        public async Task<IActionResult> AddExpensesAsyc([FromBody] ExpenseDto expenseDto)
         {
-            var expense = await _expenseRepo.AddExpense(expenseDto);
+            _expenseRepo.AddExpense(expenseDto);
             return Ok("Expense Added Successfully");
+        }
+
+        [HttpPut("UpdateExpense")]
+        public async Task<IActionResult> UpdateExpense(ExpenseDto expenseDto)
+        {
+            _expenseRepo.UpdateExpense(expenseDto);
+            return Ok();
         }
     }
 }
