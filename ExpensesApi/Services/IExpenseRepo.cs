@@ -1,15 +1,14 @@
-﻿using ExpensesApi.DTO;
-using ExpensesApi.Model;
+﻿using ExpensesApi.Model;
 
 namespace ExpensesApi.Services
 {
     public interface IExpenseRepo
     {
-        void AddExpense(ExpenseDto expense);
-        void UpdateExpense(ExpenseDto expense);
-        void DeleteExpense(int expenseId);
-        string GetOneExpense(int id);
-        Task<List<Expense>> GetAllExpenseAsync();
+        void AddExpense(Expense expense);
+        void UpdateExpense(Expense expense);
+        bool DeleteExpense(int expenseId);
+        Expense GetOneExpense(int id);
+        public Task<List<Expense>> GetAllExpenseAsync();
 
     }
 }

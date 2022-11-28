@@ -1,5 +1,4 @@
-﻿using ExpensesApi.DTO;
-using ExpensesApi.Model;
+﻿using ExpensesApi.Model;
 using ExpensesApi.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,22 +12,22 @@ namespace ExpensesApi.Implementations
             _context = context;
         }
 
-        public void AddExpense(ExpenseDto expense)
+        public void AddExpense(Expense expense)
         {
             _context.Add(expense);
             _context.SaveChanges();
         }
 
-        public void DeleteExpense(int ExpenseId)
+        public bool DeleteExpense(int ExpenseId)
         {
             var expense = _context.Expenses.FirstOrDefault(x => x.ExpenseId == ExpenseId);
             if (expense == null)
             {
-                return;
+                return false;
             }
             _context.Remove(expense);
             _context.SaveChanges();
-
+            return true;
         }
 
         public async Task<List<Expense>> GetAllExpenseAsync()
@@ -47,14 +46,14 @@ namespace ExpensesApi.Implementations
 
         }
 
-        public string GetOneExpense(int id)
+        public Expense GetOneExpense(int id)
         {
             var expense = _context.Expenses.FirstOrDefault(x => x.Id == id);
             if (expense == null) { return null; }
-            return "Dleted Successfully";
+            return expense;
         }
 
-        public void UpdateExpense(ExpenseDto expense)
+        public void UpdateExpense(Expense expense)
         {
             _context.Update(expense);
             _context.SaveChanges();
