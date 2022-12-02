@@ -9,7 +9,6 @@ namespace ExpensesApi.Model
         /// </summary>
         [Key]
         public int Id { get; set; }
-        public int ExpenseId { get; set; }
         public string ExpenseTitle { get; set; }
         public string ExpenseDescription { get; set; }
         public bool IsCompulsory { get; set; }

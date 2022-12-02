@@ -20,7 +20,7 @@ namespace ExpensesApi.Implementations
 
         public bool DeleteExpense(int ExpenseId)
         {
-            var expense = _context.Expenses.FirstOrDefault(x => x.ExpenseId == ExpenseId);
+            var expense = _context.Expenses.FirstOrDefault(x => x.Id == ExpenseId);
             if (expense == null)
             {
                 return false;
@@ -35,7 +35,6 @@ namespace ExpensesApi.Implementations
             var expense = await _context.Expenses.Select(x =>
             new Expense
             {
-                ExpenseId = x.ExpenseId,
                 IsCompulsory = x.IsCompulsory,
                 Date = x.Date,
                 ExpenseDescription = x.ExpenseDescription,
@@ -53,9 +52,10 @@ namespace ExpensesApi.Implementations
             return expense;
         }
 
-        public void UpdateExpense(Expense expense)
+        public void UpdateExpense(int expenseId)
         {
-            _context.Update(expense);
+            var expenseToBeUpdated = _context.Expenses.FirstOrDefault(x => x.Id == expenseId);
+            _context.Update(expenseToBeUpdated);
             _context.SaveChanges();
         }
     }

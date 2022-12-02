@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpensesApi.Migrations
 {
     [DbContext(typeof(ExpensesDbContext))]
-    [Migration("20221126184742_initial")]
-    partial class initial
+    [Migration("20221128142315_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,9 +39,6 @@ namespace ExpensesApi.Migrations
                     b.Property<string>("ExpenseDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ExpenseId")
-                        .HasColumnType("int");
 
                     b.Property<string>("ExpenseTitle")
                         .IsRequired()

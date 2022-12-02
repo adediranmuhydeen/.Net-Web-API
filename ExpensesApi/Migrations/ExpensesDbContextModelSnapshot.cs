@@ -37,9 +37,6 @@ namespace ExpensesApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ExpenseId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ExpenseTitle")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

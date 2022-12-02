@@ -1,4 +1,5 @@
-﻿using ExpensesApi.Model;
+﻿using ExpensesApi.DTO;
+using ExpensesApi.Model;
 using ExpensesApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,9 +10,11 @@ namespace ExpensesApi.Controllers
     public class ExpensesControler : ControllerBase
     {
         private readonly IExpenseRepo _expenseRepo;
-        public ExpensesControler(IExpenseRepo expenseRepo)
+        private readonly ExpensesDbContext _context;
+        public ExpensesControler(IExpenseRepo expenseRepo, ExpensesDbContext context)
         {
             _expenseRepo = expenseRepo;
+            _context = context;
         }
 
 
@@ -23,10 +26,18 @@ namespace ExpensesApi.Controllers
         }
 
         [HttpPut("UpdateExpense")]
-        public async Task<IActionResult> UpdateExpense(Expense expenseDto)
+        public async Task<IActionResult> UpdateExpenseAsync(int expenseId, ExpenseDto expenseDto)
         {
-            _expenseRepo.UpdateExpense(expenseDto);
-            return Ok();
+
+            var expense = _context.Expenses.FirstOrDefault(x => x.Id == expenseId);
+            if (expense == null) { return BadRequest("Expense with such ID does not exist"); }
+            expense.Date = DateTime.Now;
+            expense.ExpenseDescription = expenseDto.ExpenseDescription;
+            expense.IsCompulsory = expenseDto.IsCompulsory;
+            expense.ExpenseTitle = expenseDto.ExpenseTitle;
+
+            _expenseRepo.UpdateExpense(expenseId);
+            return Ok("Expense deleted successfully");
         }
 
         [HttpDelete("DeleteExpense")]
