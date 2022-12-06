@@ -1,5 +1,4 @@
 ﻿using ExpensesApi.DTO;
-using ExpensesApi.Model;
 using ExpensesApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,14 +18,14 @@ namespace ExpensesApi.Controllers
 
 
         [HttpPost("AddExpense")]
-        public async Task<IActionResult> AddExpensesAsyc([FromBody] Expense expenseDto)
+        public async Task<IActionResult> AddExpensesAsyc([FromBody] ExpenseDto expenseDto)
         {
-            _expenseRepo.AddExpense(expenseDto);
+            await _expenseRepo.AddExpense(expenseDto);
             return Ok("Expense Added Successfully");
         }
 
         [HttpPut("UpdateExpense")]
-        public async Task<IActionResult> UpdateExpenseAsync(int expenseId, ExpenseDto expenseDto)
+        public async Task<IActionResult> UpdateExpenseAsync([FromQuery] int expenseId, ExpenseDto expenseDto)
         {
 
             var expense = _context.Expenses.FirstOrDefault(x => x.Id == expenseId);
@@ -36,20 +35,20 @@ namespace ExpensesApi.Controllers
             expense.IsCompulsory = expenseDto.IsCompulsory;
             expense.ExpenseTitle = expenseDto.ExpenseTitle;
 
-            _expenseRepo.UpdateExpense(expenseId);
-            return Ok("Expense deleted successfully");
+            await _expenseRepo.UpdateExpense(expenseId, expenseDto);
+            return Ok(expense);
         }
 
         [HttpDelete("DeleteExpense")]
-        public async Task<IActionResult> DeleteExpense(int expenseId)
+        public async Task<IActionResult> DeleteExpense([FromQuery] int expenseId)
         {
-            var delet = _expenseRepo.DeleteExpense(expenseId);
-            if (delet == false)
+            var delet = await _expenseRepo.DeleteExpense(expenseId);
+            if (delet.Equals(false))
             {
                 return BadRequest("Expense with such ID does not exist");
             }
 
-            return Ok("Expense Deleted Successfully");
+            return Ok("Expense deleted Successfully");
         }
 
         [HttpGet("GetAllExpenses")]
@@ -62,8 +61,8 @@ namespace ExpensesApi.Controllers
         [HttpGet("GetOneExpense")]
         public async Task<IActionResult> GetOneExpense(int Id)
         {
-            var get = _expenseRepo.GetOneExpense(Id);
-            if (get == null)
+            var get = await _expenseRepo.GetOneExpense(Id);
+            if (get.Equals(false))
             {
                 return BadRequest("Invalid input");
             }
