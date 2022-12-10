@@ -69,7 +69,6 @@ C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\obj\Debug\net6.
 C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\obj\Debug\net6.0\ExpensesApi.AssemblyInfoInputs.cache
 C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\obj\Debug\net6.0\ExpensesApi.AssemblyInfo.cs
 C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\obj\Debug\net6.0\ExpensesApi.csproj.CoreCompileInputs.cache
-C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\obj\Debug\net6.0\ExpensesApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\obj\Debug\net6.0\ExpensesApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\obj\Debug\net6.0\staticwebassets\msbuild.ExpensesApi.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\obj\Debug\net6.0\staticwebassets\msbuild.build.ExpensesApi.props
@@ -85,3 +84,9 @@ C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\obj\Debug\net6.
 C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\obj\Debug\net6.0\ExpensesApi.pdb
 C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\obj\Debug\net6.0\ExpensesApi.genruntimeconfig.cache
 C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\obj\Debug\net6.0\ref\ExpensesApi.dll
+C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\bin\Debug\net6.0\Core.dll
+C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\bin\Debug\net6.0\Entity.dll
+C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\bin\Debug\net6.0\Infrastructure.dll
+C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\bin\Debug\net6.0\Core.pdb
+C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\bin\Debug\net6.0\Entity.pdb
+C:\Users\Decagon\OneDrive\Documents\.Net\ExpensesApi\ExpensesApi\bin\Debug\net6.0\Infrastructure.pdb

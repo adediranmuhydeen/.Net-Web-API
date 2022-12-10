@@ -1,5 +1,4 @@
-using ExpensesApi;
-using ExpensesApi.Implementations;
+using ExpensesApi.Context;
 using ExpensesApi.Services;
 using Microsoft.EntityFrameworkCore;
 
