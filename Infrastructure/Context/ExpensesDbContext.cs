@@ -1,4 +1,5 @@
-﻿using ExpensesApi.Model;
+﻿using Entity.Model;
+using ExpensesApi.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExpensesApi.Context
@@ -9,5 +10,7 @@ namespace ExpensesApi.Context
         public ExpensesDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Expense> Expenses { get; set; }
+        public DbSet<User> Users { get; set; }
+
     }
 }

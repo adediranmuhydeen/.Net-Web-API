@@ -60,7 +60,7 @@ namespace ExpensesApi.Controllers
         }
 
         [HttpGet("GetOneExpense")]
-        public async Task<IActionResult> GetOneExpense(int Id)
+        public async Task<IActionResult> GetOneExpense([FromQuery] int Id)
         {
             var get = await _expenseRepo.GetOneExpense(Id);
             if (get.Equals(false))
